@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
-function App() {
+function CultivoSeg() {
   // Define a state variable to store the data from the GET request
   const [data, setData] = useState([]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     // Create an asynchronous function to make the GET request
     async function fetchData() {
       try {
@@ -32,11 +32,11 @@ function App() {
     }
     // Call the fetchData function when the component mounts
     fetchData();
-  }, []);
+  }, []); */
   console.log(data);
   return (
     <div className='App'>
-      <h1>Example GET Request with Axios</h1>
+      <h1>Example GET 2</h1>
       <ul>
         {data.map((item) => (
           <li key={item.id}>{item.title}</li>
@@ -46,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default CultivoSeg;
