@@ -1,0 +1,101 @@
+/* Import the "Congenial" font */
+@import url('https://fonts.googleapis.com/css2?family=Congenial&display=swap');
+
+/* Apply styles to the entire page */
+body {
+  font-family: 'Congenial', sans-serif; /* Use the "Congenial" font */
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Style the container */
+div {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Style the table header */
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Style the table rows alternately for better readability */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style of the button */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style the buttons */
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Style the "Editar" button in edit mode */
+.buttons button.editing {
+  background-color: #ffc107d5; /* Change the color to indicate edit mode */
+  color: #000;
+}
+
+button.editing:hover {
+  background-color: #ffc107;
+}
+
+/* Style the "Enviar" button */
+.buttons button.enviar {
+  background-color: #007bff;
+  color: #fff;
+}
+
+button.enviar:hover {
+  background-color: #28a745;
+}
+
+/* Style the "Enviar" button when disabled during edit mode */
+.buttons button.enviar[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
