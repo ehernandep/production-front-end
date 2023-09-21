@@ -6,7 +6,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
 const pages = [
-  { label: "Parcelas", path: "/parcelas" },
+  { label: "Parcelas Forma", path: "/parcelas-form" },
+  { label: "Parcelas Tabla", path: "/parcelas-table" },
   { label: "Seguimiento cultivo", path: "/cultivo" },
   { label: "Semillas", path: "/semillas" },
 ];
