@@ -1,36 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const ParcelaTable = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState([]);
   const data = [
-    { parcela: 'Parcela 1', producto: 'Producto A', siembra: '2023-01-15', cosecha: '2023-03-20', detalles: '' },
-    { parcela: 'Parcela 2', producto: 'Producto B', siembra: '2023-02-10', cosecha: '2023-04-15', detalles: '' },
-    { parcela: 'Parcela 3', producto: 'Producto C', siembra: '2023-03-05', cosecha: '2023-05-10', detalles: '' },
+    { parcela: 'Parcela 1', producto: 'Producto A', siembra: '2023-01-15', cosecha: '2023-03-20' },
+    { parcela: 'Parcela 2', producto: 'Producto B', siembra: '2023-02-10', cosecha: '2023-04-15' },
+    { parcela: 'Parcela 3', producto: 'Producto C', siembra: '2023-03-05', cosecha: '2023-05-10' },
   ];
 
-  const handleEditClick = () => {
-    if (isEditing) {
-      // Exit edit mode
-      setIsEditing(false);
-    } else {
-      // Enter edit mode and initialize editedData with current data
-      setEditedData(data);
-      setIsEditing(true);
-    }
-  };
+  useEffect(() => {
+    setEditedData([...data]); // Initialize editedData with the initial data
+  }, []);
 
-  const handleSaveChangesClick = () => {
-    // Save changes and exit edit mode
-    setIsEditing(false);
-    // You can perform further actions here, such as sending the edited data to a server.
+  const handleEditClick = () => {
+    setIsEditing(!isEditing); // Toggle editing mode
   };
 
   const handleInputChange = (index, fieldName, value) => {
     const updatedData = [...editedData];
     updatedData[index][fieldName] = value;
     setEditedData(updatedData);
+  };
+
+  const handleSaveChanges = () => {
+    // Save the changes and exit edit mode
+    setIsEditing(false);
+    // You can perform any further actions here, such as sending data to a server
+    console.log('Edited Data:', editedData);
+  };
+
+  const handleCancel = () => {
+    // Discard changes and exit edit mode
+    setEditedData([...data]);
+    setIsEditing(false);
   };
 
   return (
@@ -53,7 +57,7 @@ const ParcelaTable = () => {
                 {isEditing ? (
                   <input
                     type="text"
-                    value={editedData[index].parcela}
+                    value={item.parcela}
                     onChange={(e) => handleInputChange(index, 'parcela', e.target.value)}
                   />
                 ) : (
@@ -64,7 +68,7 @@ const ParcelaTable = () => {
                 {isEditing ? (
                   <input
                     type="text"
-                    value={editedData[index].producto}
+                    value={item.producto}
                     onChange={(e) => handleInputChange(index, 'producto', e.target.value)}
                   />
                 ) : (
@@ -75,7 +79,7 @@ const ParcelaTable = () => {
                 {isEditing ? (
                   <input
                     type="text"
-                    value={editedData[index].siembra}
+                    value={item.siembra}
                     onChange={(e) => handleInputChange(index, 'siembra', e.target.value)}
                   />
                 ) : (
@@ -86,7 +90,7 @@ const ParcelaTable = () => {
                 {isEditing ? (
                   <input
                     type="text"
-                    value={editedData[index].cosecha}
+                    value={item.cosecha}
                     onChange={(e) => handleInputChange(index, 'cosecha', e.target.value)}
                   />
                 ) : (
@@ -95,13 +99,9 @@ const ParcelaTable = () => {
               </td>
               <td>
                 {isEditing ? (
-                  <input
-                    type="text"
-                    value={editedData[index].detalles}
-                    onChange={(e) => handleInputChange(index, 'detalles', e.target.value)}
-                  />
+                  <button disabled>Ver Detalles</button>
                 ) : (
-                  item.detalles
+                  <button>Ver Detalles</button>
                 )}
               </td>
             </tr>
@@ -109,16 +109,19 @@ const ParcelaTable = () => {
         </tbody>
       </table>
       <div className="buttons">
-        <button className={isEditing ? 'editing' : ''} onClick={handleEditClick}>
-          {isEditing ? 'Cancelar' : 'Editar'}
-        </button>
         {isEditing ? (
-          <button className="save-button" onClick={handleSaveChangesClick}>
-            Guardar Cambios
-          </button>
+          <>
+            <button className="editing" onClick={handleSaveChanges}>
+              Guardar Cambios
+            </button>
+            <button onClick={handleCancel}>Cancelar</button>
+          </>
         ) : (
-          <button>Enviar</button>
+          <button className={isEditing ? 'editing' : ''} onClick={handleEditClick}>
+            Editar
+          </button>
         )}
+        <button>Enviar</button>
       </div>
     </div>
   );
