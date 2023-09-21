@@ -5,9 +5,9 @@ const Selecsemilla = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState([]);
   const data = [
-    { producto: 'Parcela 1', Descripcion: 'Producto A', duracionCosecha: '2023-01-15', climaAdecuado: '2023-03-20', otrasConsideraciones: 'sdf'},
-    { producto: 'Parcela 2', Descripcion: 'Producto B', duracionCosecha: '2023-02-10', climaAdecuado: '2023-04-15', otrasConsideraciones: 'sdf'},
-    { producto: 'Parcela 3', Descripcion: 'Producto C', duracionCosecha: '2023-03-05', climaAdecuado: '2023-05-10', otrasConsideraciones: 'sdf'},
+    { producto: 'rosas', Descripcion: 'flor', duracionCosecha: '20semanas', climaAdecuado: 'humedo', otrasConsideraciones: 'sdf'},
+    { producto: 'manzana', Descripcion: 'fruta', duracionCosecha: '30semanas', climaAdecuado: 'seco', otrasConsideraciones: 'sdf'},
+    { producto: 'tomate', Descripcion: 'vegetal, duracionCosecha: '18semanas', climaAdecuado: 'humedo', otrasConsideraciones: 'sdf'},
   ];
 
   useEffect(() => {
