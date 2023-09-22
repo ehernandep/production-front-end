@@ -35,7 +35,6 @@ function SemillasForm() {
       console.error("Error saving data: ", error);
     }
   };
-  console.log(formData)
   return (
     <Box padding={5}>
       <TextField

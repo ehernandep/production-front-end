@@ -8,10 +8,11 @@ import Button from "@mui/material/Button";
 const pages = [
   { label: "Forma Parcelas", path: "/parcelas-forma" },
   { label: "Tabla Parcelas", path: "/parcelas-tabla" },
-  { label: "Forma Seguimiento Cultivo", path: "/cultivo-forma" },
-  { label: "Tabla Seguimiento Cultivo", path: "/cultivo-tabla" },
   { label: "Forma Semillas", path: "/semillas-forma" },
   { label: "Tabla Semillas", path: "/semillas-tabla" },
+  { label: "Forma Seguimiento Cultivo", path: "/cultivo-forma" },
+  { label: "Tabla Seguimiento Cultivo", path: "/cultivo-tabla" },
+
 ];
 function NavBar() {
   return (

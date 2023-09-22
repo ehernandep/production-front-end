@@ -20,7 +20,7 @@ function CultivoSegForm() {
   });
 
   const [terrainOptions, setTerrainOptions] = useState([]);
-
+  const [seeds, setSeeds] = useState([]);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -57,6 +57,18 @@ function CultivoSegForm() {
         console.error("Error fetching data:", error);
       }
     }
+    async function fetchSeeds() {
+      try {
+        const response = await axios.get(
+          "https://qxi3urvfog.execute-api.us-east-1.amazonaws.com/dev/semillas"
+        );
+        const responseData = response.data;
+        setSeeds(responseData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchSeeds();
     fetchData();
   }, []);
 
@@ -96,19 +108,25 @@ function CultivoSegForm() {
           onChange={handleChange}
         >
           {partitionedTerrainOptions?.map((option) => (
-            <MenuItem key={option.partitionedterrainid} value={option.partitionedterrainid}>
+            <MenuItem
+              key={option.partitionedterrainid}
+              value={option.partitionedterrainid}
+            >
               {option.partitionedTerrain}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
-      <TextField
-        label='Producto'
-        name='product_name'
-        value={formData.product_name}
-        onChange={handleChange}
-        fullWidth
-      />
+      <FormControl fullWidth>
+        <InputLabel>Producto</InputLabel>
+        <Select name='product_name' value={formData.product_name} onChange={handleChange}>
+          {seeds?.map((option) => (
+            <MenuItem key={option.product} value={option.product}>
+              {option.product}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
       <TextField
         label='Fecha Siembra'
         name='sowing_date'
@@ -123,8 +141,6 @@ function CultivoSegForm() {
         onChange={handleChange}
         fullWidth
       />
-
-
 
       <TextField
         label='Details'
