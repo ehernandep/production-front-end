@@ -6,9 +6,10 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
 const pages = [
-  { label: "Parcelas Forma", path: "/parcelas-form" },
-  { label: "Parcelas Tabla", path: "/parcelas-table" },
-  { label: "Seguimiento cultivo", path: "/cultivo" },
+  { label: "Forma Parcelas", path: "/parcelas-form" },
+  { label: "Tabla Parcelas", path: "/parcelas-table" },
+  { label: "Forma Seguimiento Cultivo", path: "/cultivo-form" },
+  { label: "Tabla Seguimiento Cultivo", path: "/cultivo-table" },
   { label: "Semillas", path: "/semillas" },
 ];
 function NavBar() {
