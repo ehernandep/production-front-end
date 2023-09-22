@@ -9,25 +9,23 @@ import {
   Paper,
   Box,
 } from "@mui/material";
-
 import axios from "axios";
-
 const columns = [
-  "ID Terreno",
-  "ID Usuario",
-  "Nombre Terreno",
-  "Area Terreno",
-  "Numero de Particiones",
+  "ID Semilla",
+  "Producto",
+  "Descripcion",
+  "Clima",
+  "Tiempo de Siembra",
+  "Otra Informacion",
 ];
-
-function ParcelasTable() {
+function SemillasTable() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://5ihs68xar4.execute-api.us-east-1.amazonaws.com/dev/parcelas"
+          "https://qxi3urvfog.execute-api.us-east-1.amazonaws.com/dev/semillas"
         );
 
         const responseData = response.data;
@@ -40,6 +38,7 @@ function ParcelasTable() {
 
     fetchData();
   }, []);
+
   return (
     <Box padding={5}>
       <TableContainer component={Paper}>
@@ -54,11 +53,12 @@ function ParcelasTable() {
           <TableBody>
             {data.map((row, rowIndex) => (
               <TableRow key={rowIndex}>
-                <TableCell>{row.terrain_id}</TableCell>
-                <TableCell>{row.user_id}</TableCell>
-                <TableCell>{row.terrain_name}</TableCell>
-                <TableCell>{row.terrain_area}</TableCell>
-                <TableCell>{row.partition_count}</TableCell>
+                <TableCell>{row.seed_id}</TableCell>
+                <TableCell>{row.product}</TableCell>
+                <TableCell>{row.description}</TableCell>
+                <TableCell>{row.climate}</TableCell>
+                <TableCell>{row.sowing_time}</TableCell>
+                <TableCell>{row.other_info}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -68,4 +68,4 @@ function ParcelasTable() {
   );
 }
 
-export default ParcelasTable;
+export default SemillasTable;

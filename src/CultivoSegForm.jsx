@@ -44,7 +44,7 @@ function CultivoSegForm() {
       console.error("Error saving data: ", error);
     }
   };
-  console.log(formData)
+
   useEffect(() => {
     async function fetchData() {
       try {

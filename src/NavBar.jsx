@@ -6,11 +6,12 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
 const pages = [
-  { label: "Forma Parcelas", path: "/parcelas-form" },
-  { label: "Tabla Parcelas", path: "/parcelas-table" },
-  { label: "Forma Seguimiento Cultivo", path: "/cultivo-form" },
-  { label: "Tabla Seguimiento Cultivo", path: "/cultivo-table" },
-  { label: "Semillas", path: "/semillas" },
+  { label: "Forma Parcelas", path: "/parcelas-forma" },
+  { label: "Tabla Parcelas", path: "/parcelas-tabla" },
+  { label: "Forma Seguimiento Cultivo", path: "/cultivo-forma" },
+  { label: "Tabla Seguimiento Cultivo", path: "/cultivo-tabla" },
+  { label: "Forma Semillas", path: "/semillas-forma" },
+  { label: "Tabla Semillas", path: "/semillas-tabla" },
 ];
 function NavBar() {
   return (

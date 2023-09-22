@@ -37,7 +37,7 @@ function CultivoSegTable() {
     }
     fetchData();
   }, []);
-  console.log(data);
+
   return (
     <Box padding={5}>
       <TableContainer component={Paper}>
